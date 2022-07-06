@@ -1,6 +1,10 @@
 let divList = document.getElementById("div-list")
 let input = document.getElementById("myInput")
 let addBtn = document.getElementById("addBtn")
+let deleteAllBtn = document.getElementById("deleteAll")
+let allBtn = document.getElementById("all")
+let doneBtn = document.getElementById("done")
+let undoneBtn = document.getElementById("undone")
 
 addBtn.addEventListener("click", addListEl)
 deleteAllBtn.addEventListener("click", function(){
