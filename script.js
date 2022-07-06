@@ -3,6 +3,41 @@ let input = document.getElementById("myInput")
 let addBtn = document.getElementById("addBtn")
 
 addBtn.addEventListener("click", addListEl)
+deleteAllBtn.addEventListener("click", function(){
+    let els = Array.from(document.getElementsByClassName("el"))
+    els.forEach(el => el.remove())
+})
+
+allBtn.addEventListener("click", function(){
+    const allToDos = Array.from(document.getElementsByClassName("el"))
+    allToDos.forEach(el => {
+        if(el.classList.contains('hide')){
+            el.classList.remove('hide')
+        }
+    })
+})
+
+doneBtn.addEventListener("click", function(){
+    const allToDos = Array.from(document.getElementsByClassName("el"))
+    allToDos.forEach(el => {
+        if(!el.classList.contains('checked')){
+            el.classList.add('hide')
+        } else {
+            el.classList.remove('hide')
+        }
+    })
+})
+
+undoneBtn.addEventListener("click", function(){
+    const allToDos = Array.from(document.getElementsByClassName("el"))
+    allToDos.forEach(el => {
+        if(el.classList.contains('checked')){
+            el.classList.add('hide')
+        } else {
+            el.classList.remove('hide')
+        }
+    })
+})
 
 function addListEl(){
     if(input.value){
@@ -29,3 +64,9 @@ function addListEl(){
         alert('You should write your task down first')
     }
 }
+
+window.addEventListener("keydown", function(e){
+    if(e.key === "Enter"){
+        addListEl()
+    }
+})
